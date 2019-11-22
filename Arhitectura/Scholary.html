@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acav Scholarly HTML</title>
+</head>
+<header>
+    <h1 style="color:rgb(126, 31, 126)">Acav Scholarly HTML</h1>
+</header>
+
+<body>
+
+    <section typeof="sa:AuthorsList">
+        <h3>Authors</h3>
+        <ul>
+            <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person" resource="">
+                    <meta property="schema:givenName" content="Daniel">
+                    <meta property="schema:additionalName" content="">
+                    <meta property="schema:familyName" content="Mihai">
+                    <span property="schema:name">Mihai Daniel</span>
+                </span>
+                <ul>
+                    <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                        <a href="daniel.mihai@info.uaic.ro" property="schema:email">daniel.mihai@info.uaic.ro</a>
+                    </li>
+                </ul>
+            </li>
+            <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person" resource="">
+                    <meta property="schema:givenName" content="Iuliana">
+                    <meta property="schema:additionalName" content="Iustina">
+                    <meta property="schema:familyName" content="Sarbu">
+                    <span property="schema:name">Sarbu Iustina</span>
+                </span>
+                <ul>
+                    <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                        <a href="sarbu.iustina@gmail.com" property="schema:email">sarbu.iustina@gmail.com</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+
+    <section typeof="sa:Discussion Group">
+        <h5>Discussion Group</h5>
+        <ul>
+            <li property="schema:listDiscussionGroup" typeof="schema:DiscussionGroup">
+                <a href="https://github.com/iustina02/Acav-Project" property="schema:linkDiscussionGroup">GitHub
+                    Repository</a>
+            </li>
+        </ul>
+    </section>
+
+    <section typeof="sa:Abstract">
+        <h2 style="color:rgb(126, 31, 126)">1. Abstract</h2>
+        <!-- Platforma este contruita in intregime pe standarde deschise. Acest document reprezentand atat, modul in care
+        aplicatia prezinta diferite functionalitati, cat si modul in care este codificata.
+        --></section>
+
+    <section typeof="sa:Introduction">
+        <h2 style="color:rgb(126, 31, 126)">2. Introduction</h2>
+        Aceasta este o aplicaţie bazata pe (micro-)servicii Web oferind modalităţi de vizualizare avansată a conţinuturilor muzicale pe care le asculta/partajeaza online anumite (grupuri de) persoane -- se vor prelua informaţii de la servicii (streaming) de profil.
+        Ca exemple de vizualizări pot fi considerate: figurarea grafului melodiilor favorite ale mai multor utilizatori având o anumita localizare geografică ori preocupări comune, relaţiile între melodii similare pe baza meta-datelor asociate fiecarei productii muzicale, 
+        generarea unor grupuri de utilizatori împărtăşind interese comune (e.g., pasionatii de muzica rock progresiv compusa intre anii 1970 si 1977 si interpretata de grupuri europene), eventual folosindu-se termeni de conţinut (tag-uri) asociate melodiilor. 
+        Vizualizarile create vor putea fi exportate ca fisiere PNG si SVG.
+    </section>
+
+    <section typeof="sa:Structure">
+        <h2 style="color:rgb(126, 31, 126)">3. Structure</h2>
+    </section>
+
+    <section typeof="sa:listEtape">
+        <h3>Etape</h3>
+        <ul>
+            <li property="schema: roleFrontEnd">
+                <u>1. FrontEnd Desing</u>
+            </li>
+            <br>
+                Pentru front desing vom folosi HTML + CSS s vom incerca ca interfata pentru utilizator sa fie cat mai simpla. Aceasta schimbandu-se in functie de actunile
+                utilizatorului.
+            <br />
+            <br>
+            <li property="schema: roleBackEnd">
+                <u>2. BackEnd</u>
+            </li>
+            <br>
+                Pentru partea de server vom folosi ECMAScript. Astfel vom putea crea o aplicatie Single-Page ce va fi usor de chestionat.
+            <br />
+            <br>
+            <li property="schema: roleDataBase">
+                <u>3. DataBase</u>
+            </li>
+            <br>
+                Datele pentru crearea unui cont de catre utilizator vor fi stocate intr-o baza de date ce va fi interogata pentru 
+                eventuale logari pe site sau va fi modificata in cazul in care utilizatorul doreste sa-si modifice anumite date.
+            <br />
+            <br>
+            <li property="schema: roleAPI">
+                <u>4. API</u>
+            </li>
+            <br>
+                Vom folosi urmatoarele API-uri pentru ca site-ul nostru ca sa fie cat mai complet si fluent in transmiterea si distribuirea datelor cu continut muzical si nu numai:
+                <ul>
+                    <li>
+                        <u>Openwhyd API</u>
+                    </li>
+                    <br>
+                    <li>
+                        <u>E-mail System</u>
+                    </li>
+                    <br>
+                    <li>
+                        <u>API pentru download-ul de grafuri in formatul cerut</u>
+                    </li>
+                    <br>
+                </ul>
+            <br />
+            <br>
+        </ul>
+    </section>
+
+
+    <section typeof="sa:Structure">
+        <h2 style="color:rgb(126, 31, 126)">4. Interactiune cu utilizatorul</h2>
+    </section>
+        <h3>Actiunile posibile pentru utilizatorul neconectat:</h3>
+        <li property="schema: roleSignUp">
+            <u> SignUp</u>
+        </li>
+        <br>
+            Crearea unui cont introducant urmatoarele date:
+                <ul>
+                    Nume
+                    <br>
+                    Prenume
+                    <br><!-- COMPLETEAZA AICI -->
+                </ul>
+        <br />
+        <br>
+        <li property="schema: roleLogIn">
+            <u> LogIn</u>
+        </li>
+        <br>
+        Logarea intr-un cont existent introducant datele:
+            <ul>
+                Nume
+                <br>
+                Prenume
+                <br><!-- COMPLETEAZA AICI -->
+            </ul>
+        <br />
+        <li property="schema: roleResetPassword">
+                <u> Reset Password</u>
+            </li>
+            <br>
+            Resetarea parolei introducand emailul:
+                <ul>
+                    Nume
+                    <br>
+                    Prenume
+                    <br><!-- COMPLETEAZA AICI -->
+                </ul>
+            <br />
+            Astfel utilizatorul va avea posibilitatea de a-si schimba parola in cazul in care aceasta o uita.
+        <br><br><br>
+        <h3>Actiunile posibile pentru utilizatorul conectat:</h3>
+        <li property="schema: roleProfil">
+            <u> Vizualizare Profil</u>
+        </li>
+        <br>
+            Redirectionarea cu ajutorul unui buton catre pagine de profil a utilizatorului
+            unde acesta poate vedea urmatoarele date:
+            <ul>
+                Nume
+                <br>
+                Prenume
+                <br>
+                <!-- COMPLETEAZA AICI -->
+            </ul>
+        <br />
+        <br>
+        <li property="schema: roleShareMusic">
+            <u> ShareMusic</u>
+        </li>
+        <br>
+            Utilizatorul poate sa distribuie melodiile preferate ce vor aparea in "news".
+        <br/>
+        <br>
+        <li property="schema: roleVizualizareContinutMuzical">
+            <u> Vizualizare Continut Muzical</u>
+        </li>
+        <br>
+            Va avea oportunitatea de a asculta continutul muzical pe care il alege
+            si totodata de a vedea anumite "grafuri" in legatura cu muzica apreciata
+            de anumite categorii de persoane (ex: pozitia geografica, ocupatie, varsta).
+        <br/>
+        <br>
+        <li property="schema: roleTags">
+            <u> Primirea de sugestii</u>
+        </li>
+        <br>
+            Va avea oportunitatea de a primi anumite sugesti legate de melodii ce i-ar putea placea,
+            avand aceleasi taguri cu cele deja apreciate sau distribuite.
+        <br/>
+        <br>
+        <li property="schema: roleLogOut">
+            <u>Log out / Delete Account</u>
+        </li>
+        <br>
+            Acesta are intotdeauna posibiitatea de a se deconecta de la cont sau de a sterge
+            complet contul si totodata datele legate de activitatea acestuia.
+        <br/>
+        <br>
+
+    <section typeof="sa:MagagementCode">
+        <h2 style="color:rgb(126, 31, 126)">5. MagagementCode</h2>
+    </section>
+        <h3>Modul de folosire a sistemului de management al codului-sursă ales</h3>
+            <!-- COMPLETEAZA AICI -->
+            Gestiunea de fisiere 
+
+    <section typeof="sa:MagagementCode">
+        <h2 style="color:rgb(126, 31, 126)">6. Modelarea datelor</h2>
+    </section>
+        <h3>Detalii referitoare la modelarea datelor proprii –
+             inclusiv cele externe preluate via API-uri publice</h3>
+            <li property="schema: roleOpenwhydAPI">
+                <u>Openwhyd API</u>
+            </li>
+                Users can access and download data that they contributed to Openwhyd
+                <br/>
+                <br>
+                Users can even use their Openwhyd account from 3rd-party software.
+                The list of tracks can be downloaded in several formats: JSON or as a list of URLs. 
+                <br/>
+                <br>
+                GET Parameters
+                <br>
+                format: “json” or “links” 
+                <br>
+                limit: number of posts to return (optional, default=20)
+                <br>
+                after: identifier of the post (a.k.a. pId) from which entries must be returned (optional, for pagination)
+                <br/>
+                <br>
+                Acest API poate fi folosit pentru mai multe actiuni, verificati sursa:
+                <br> <a href="https://openwhyd.github.io/openwhyd/API">Openwhyd</a>
+                <br/>
+                <br>
+
+            <li property="schema: roleEmailJS">
+                <u>EmailJS API</u>
+            </li>
+                Sends an email based on the specified email template and the passed dynamic parameters.
+                 The email is sent via the specified email service or via the default service if 
+                 "default_service" is passed.
+                <br/>
+                <br>
+                Response formats is JSON or Text
+                Sursa: <a href="https://www.emailjs.com/docs/rest-api/send/">EmailJS API</a>
+                <br/>
+                <br>
+            <li property="schema: roleEmailJS">
+                <u>Graph API</u>
+            </li>
+                In progress..
+                <!-- COMPLETEAZA AICI -->
+            <br/>
+            <br>
+    <section typeof="sa:ReferencesList">
+        <h2 style="color:rgb(126, 31, 126)"> References</h2>
+        <ul>
+            <li typeof="sa:listTW" property="schema:TW">
+                <span property="schema:nameReferences">STAW</span>
+                </span>
+                <ul>
+                    <li property="schema:linkReferences" typeof="schema:References">
+                        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/staw/index.html"
+                            property="schema:link.Net">Web Page</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li typeof="sa:listW3" property="schema:W3">
+                <span property="schema:nameReferencesTutorial">W3 Schools</span>
+                </span>
+                <ul>
+                    <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                        <a href="https://www.w3schools.com/html/" property="schema:linkHTML">HTML</a>
+                    </li>
+                    <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                        <a href="https://www.w3schools.com/css/" property="schema:linkCSS">CSS</a>
+                    </li>
+                    <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                        <a href="https://www.w3schools.com/js/" property="schema:linkJS">JavaScript</a>
+                    </li>
+                    <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                        <a href="https://www.w3schools.com/sql/" property="schema:linkSQL">MySql</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
