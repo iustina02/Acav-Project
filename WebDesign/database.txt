@@ -1,0 +1,15 @@
+User:
+nume, email,
+country,
+varsta, oras, preocupare ***** add forum
+profile Image
+genuri
+
+
+
+Grup:
+title
+id_user
+
+GRAPH 
+gen -> album intre anii : 1970 1977 -> din europa
