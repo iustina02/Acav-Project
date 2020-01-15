@@ -131,12 +131,14 @@ body{
     margin-left: 20%;
     position: absolute;
     top: 45px;
+    width: 75%;
 }
 
 #Home .top_menu p{
     margin: 10px;
     margin-right: 20px;
     padding: 5px;
+    width: 10%;
 }
 
 #Home .top_menu p:hover{
@@ -152,6 +154,8 @@ body{
     margin-top: 5px;
     background-color: rgb(255, 250, 240);
     border-radius: 5px;
+    position: absolute;
+    right: 0px;
 }
 
 #Home .main_body{
@@ -195,7 +199,7 @@ body{
     width: 100%; 
   }
 
-#Home .main_body a {
+#Home .main_body #btn-download,#Home .main_body #btn-download-svg {
     position: absolute;
     font-size: 17px;
     color:rgb(17, 17, 17);
@@ -209,7 +213,11 @@ body{
     border-bottom-right-radius: 0px;
 }
 
-#Home .main_body a:hover{
+#Home .main_body #btn-download-svg {
+    left:150px;
+}
+
+#Home .main_body #btn-download:hover,#Home .main_body #btn-download-svg:hover{
     background-color: rgb(48, 48, 48);
     color: rgb(248, 227, 169);
     border: 1.5px solid rgb(248, 227, 169);
@@ -225,3 +233,78 @@ body{
     height: 200px;
     border-radius: 10px;
 }
+
+#Home .groups{
+    position: absolute;
+    background-color: rgb(248, 246, 221);
+    width: 28%;
+    bottom: 70px;
+    left: 68%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+#Home .groups .title{
+    font-size: 20px;
+    color: rgb(48, 48, 48);;
+}
+
+.title i{
+    margin: 5px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.title .fas.fa-ellipsis-h{
+    color: rgb(48, 48, 48);
+    float: right;
+    margin-right: 20px;
+}
+
+.list_of_groups{
+    background-color: rgb(180, 180, 180);
+    height: 70%;
+    overflow: scroll;
+}
+
+#Home .groups .group{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.group p{
+    margin: 5px;
+    font-size: 17px;
+}
+
+.group .group_right{
+    position: absolute;
+    right: 10px;
+    margin: 8px;
+}
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

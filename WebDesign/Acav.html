@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="Acav.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+        <script src="https://kit.fontawesome.com/ec29ebc02d.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -42,12 +43,74 @@
                 <div class="graph">
                     <canvas id="chart" height="0px"></canvas>
                     <img src="" id="mirror" class="canvas_mirror" alt="">
+                    <svg id="svg" width="600" height="300" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
+                    </svg>
                 </div>
-                <a href="#Home" class="button" id="btn-download" download="my-file-name.png">Download</a>
+                <a href="#Home" class="button" id="btn-download" download="chart.png">Download PNG</a>
+                <a href="#Home" class="button" id="btn-download-svg" download="chart.svg">Download SVG</a>
             </div>
 
             <div class="Top_genre">
                 <p>Top genre</p>
+            </div>
+
+            <div class="groups">
+                <div class="title">
+                    <i class="fas fa-users"></i>Group
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="list_of_groups">
+                    <div class="group">
+                        <p>Rock</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Ceva</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Rock</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Rock</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Rock</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Rock</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Rock</p>
+                        <div class="group_right">
+                            <input type="checkbox" checked="checked">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
@@ -110,5 +173,28 @@
             var dataURL = chart.toDataURL('image/png');
             button.href = dataURL;
         });
+
+        var targetSVG = document.getElementById('svg');
+
+        var button2 = document.getElementById('btn-download-svg');
+        button2.addEventListener('click', function (e) {
+            var dataURL = chart.toDataURL('image/png');
+            button2.href = dataURL;
+            // var svg_img = document.createElementNS("http://www.w3.org/2000/svg","image");
+
+            // svg_img.setAttributeNS(
+            //     "http://www.w3.org/1999/xlink", "href", dataURL);
+
+            // svg_img.setAttribute("width","300px");
+            // targetSVG.appendChild(svg_img);
+            // var dataURL2 =  svg_img.href;
+
+            // console.log(dataURL2)
+            // var base64 = dataURL2.animVal;
+
+            // button2.href = base64;
+
+        });
+
     </script>
 </html>
