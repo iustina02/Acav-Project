@@ -22,14 +22,14 @@ const app = {
         history.pushState({}, currentPage, `#${currentPage}`);
         document.getElementById(currentPage).dispatchEvent(app.show);
     },
-    pageShown: function(ev){
-        console.log('Page', ev.target.id, 'just shown');
-        let h1 = ev.target.querySelector('h1');
-        h1.classList.add('big')
-        setTimeout((h)=>{
-            h.classList.remove('big');
-        }, 1200, h1);
-    },
+    // pageShown: function(ev){
+    //     console.log('Page', ev.target.id, 'just shown');
+    //     let h1 = ev.target.querySelector('h1');
+    //     h1.classList.add('big')
+    //     setTimeout((h)=>{
+    //         h.classList.remove('big');
+    //     }, 1200, h1);
+    // },
     poppin: function(ev){
         console.log(location.hash, 'popstate event');
         let hash = location.hash.replace('#' ,'');
