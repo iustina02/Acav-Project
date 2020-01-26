@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ACAV</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./CSS/login_page.css">
+        <link rel="stylesheet" href="./CSS/home_page.css">
+        <link rel="stylesheet" href="./CSS/menu_page.css">
+        <style type="text/css">
+            .active{
+                display: block;
+            }
+            .inactive{
+                display: none;
+            }
+          </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+        <script src="https://kit.fontawesome.com/ec29ebc02d.js" crossorigin="anonymous"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+        <script>
+        window.onload = function () {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="Login" href="/start_page">
+            <h1>Welcome to</h1>
+            <img src="https://www.graphicsprings.com/filestorage/stencils/f9283310df222811f9d9e117132d93a5.png?width=500&height=500" alt ="Acav Logo">
+            <button onclick="deleteAllCookies()"><a style="text-decoration: none; color:white;"href="/login">Login</a></button>
+            <br>
+        </div>
+
+        <div id="Home">
+            <div class="right_menu">
+                <button id="Log_out2">Log out</button>
+                <img src="https://www.graphicsprings.com/filestorage/stencils/f9283310df222811f9d9e117132d93a5.png?width=500&height=500" alt ="Acav Logo">
+                <div>
+                    <button id="btn_top_tracks">Show</button><a href="/top_tracks">Get Tracks</a>
+                </div>
+                <div>
+                    <button id="btn_top_artists">Show</button><a href="/top_artists">Get Artists</a>
+                </div>
+                <div>
+                    <button id="btn_top_genres">Show</button><a href="/top_genres">Get Genres</a>
+                </div>
+                <!-- <button>Graph</button> -->
+                <button id="Log_out"><a href="/log_out">Log out</a></button>
+            </div>
+            <div class="top_menu">
+                <button onclick="top_menu()">⮛</button>
+                <p>Popularity</p>
+                <p>Gen</p>
+                <p>Year</p>
+                <p>Something</p>
+                <input placeholder="Search..">
+            </div>
+
+            <div class="main_body">
+                <h1 id="user_welcome">Hello, user</h1>
+                <div class="graph">
+                    <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+                </div>
+                <a href="#Home" class="button" id="btn-download" >Download PNG</a>
+                <a href="#Home" class="button" id="btn-download-svg">Download SVG</a>
+            </div>
+
+            <div class="Top_genre">
+                <p>Top genre</p>
+            </div>
+
+            <div class="groups">
+                <div class="title">
+                    <i class="fas fa-users"></i><button id="btn_groups" >See groups</button>
+                    <a id="take_data_group" href="/groups">Take data</a>
+                </div>
+                <div class="list_of_groups">
+                    <div class="group">
+                        <p id="first_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="sec_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="thr_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="four_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="five_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="six_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="seven_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="eight_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="nine_gen"></p>
+                    </div>
+                    <div class="group">
+                        <p id="ten_gen"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Menu">
+            <div class="right_menu">
+                <button id="home_button" onclick="home()">⮛</button>
+                <img src="https://www.graphicsprings.com/filestorage/stencils/f9283310df222811f9d9e117132d93a5.png?width=500&height=500" alt ="Acav Logo">
+                <button >Top Songs</button>
+                <button>Top Artists</button>
+                <button>Top Albums</button>
+                <button>Graph</button>
+                <button onclick="Log_out()"><a style="text-decoration: none; color:black; margin-left: 5px;" href="/log_out">Log out</a></button>
+            </div>
+        </div>
+    </body>
+    <script src="./JS/pages.js"></script>
+    <script src="./JS/chart.js"></script>
+    <script src="./JS/share_graph.js"></script>
+    <script src="./JS/pages2.js"></script>
+    <script>
+        var artists_name = top_artists_name_cookies();
+        var artists_popularity = top_artists_popularity_cookies();
+        
+        // document.getElementById("btn_groups").click();
+
+        console.log('artists_name ' + artists_name);
+        console.log('artists_popularity ' + artists_popularity);
+
+        document.getElementById("btn_top_tracks").addEventListener("click", function () {
+
+            var chart =  new CanvasJS.Chart("chartContainer", {
+            theme: "dark1", // "light2", "dark1", "dark2"
+            animationEnabled: true, // change to true		
+            title:{
+                text: "Tracks - Popularity"
+                },
+                data: [
+                {
+                    // Change type to "bar", "area", "spline", "pie",etc.
+                    type: "column",
+                    dataPoints: [
+                        { label: artists_name[0],  y: parseInt(artists_popularity[0],10)},
+                        { label: artists_name[1], y: parseInt(artists_popularity[1],10)  },
+                        { label: artists_name[2], y: parseInt(artists_popularity[2],10)  },
+                        { label: artists_name[3],  y: parseInt(artists_popularity[3],10)  },
+                        { label: artists_name[4],  y: parseInt(artists_popularity[4],10)  },
+                        { label: artists_name[5],  y: parseInt(artists_popularity[5],10) },
+                        { label: artists_name[6], y: parseInt(artists_popularity[6],10)  },
+                        { label: artists_name[7], y: parseInt(artists_popularity[7],10)  },
+                        { label: artists_name[8],  y: parseInt(artists_popularity[8],10)  },
+                        { label: artists_name[9],  y: parseInt(artists_popularity[9],10)  }
+                    ]
+                }
+                ]
+            });
+            chart.render();
+
+            let fdds =  document.querySelector("div.canvasjs-chart-container a");
+            fdds.setAttribute("style", "display:none;");
+            
+            document.getElementById("btn-download").addEventListener("click",function() {
+            chart.exportChart({format: "png"});
+            });
+
+            document.getElementById("btn-download-svg").addEventListener("click",function() {
+                chart.exportChart({format: "svg"});
+            });
+
+            });
+
+        document.getElementById("btn_top_artists").addEventListener("click", function () {
+
+            var chart =  new CanvasJS.Chart("chartContainer", {
+            theme: "dark1", // "light2", "dark1", "dark2"
+            animationEnabled: true, // change to true		
+            title:{
+                text: "Artists - Popularity"
+                },
+                data: [
+                {
+                    // Change type to "bar", "area", "spline", "pie",etc.
+                    type: "column",
+                    dataPoints: [
+                        { label: artists_name[0],  y: parseInt(artists_popularity[0],10)},
+                        { label: artists_name[1], y: parseInt(artists_popularity[1],10)  },
+                        { label: artists_name[2], y: parseInt(artists_popularity[2],10)  },
+                        { label: artists_name[3],  y: parseInt(artists_popularity[3],10)  },
+                        { label: artists_name[4],  y: parseInt(artists_popularity[4],10)  },
+                        { label: artists_name[5],  y: parseInt(artists_popularity[5],10) },
+                        { label: artists_name[6], y: parseInt(artists_popularity[6],10)  },
+                        { label: artists_name[7], y: parseInt(artists_popularity[7],10)  },
+                        { label: artists_name[8],  y: parseInt(artists_popularity[8],10)  },
+                        { label: artists_name[9],  y: parseInt(artists_popularity[9],10)  }
+                    ]
+                }
+                ]
+            });
+            chart.render();
+
+            document.getElementById("btn-download").addEventListener("click",function() {
+            chart.exportChart({format: "png"});
+            });
+
+            document.getElementById("btn-download-svg").addEventListener("click",function() {
+                chart.exportChart({format: "svg"});
+            });
+
+            let fdds =  document.querySelector("div.canvasjs-chart-container a");
+            fdds.setAttribute("style", "display:none;");
+        });
+
+        document.getElementById("btn_top_genres").addEventListener("click", function () {
+
+            var chart =  new CanvasJS.Chart("chartContainer", {
+            theme: "dark1", // "light2", "dark1", "dark2"
+            animationEnabled: true, // change to true		
+            title:{
+                text: "Genres - Popularity"
+                },
+                data: [
+                {
+                    // Change type to "bar", "area", "spline", "pie",etc.
+                    type: "column",
+                    dataPoints: [
+                        { label: artists_name[0],  y: parseInt(artists_popularity[0],10)},
+                        { label: artists_name[1], y: parseInt(artists_popularity[1],10)  },
+                        { label: artists_name[2], y: parseInt(artists_popularity[2],10)  },
+                        { label: artists_name[3],  y: parseInt(artists_popularity[3],10)  },
+                        { label: artists_name[4],  y: parseInt(artists_popularity[4],10)  },
+                        { label: artists_name[5],  y: parseInt(artists_popularity[5],10) },
+                        { label: artists_name[6], y: parseInt(artists_popularity[6],10)  },
+                        { label: artists_name[7], y: parseInt(artists_popularity[7],10)  },
+                        { label: artists_name[8],  y: parseInt(artists_popularity[8],10)  },
+                        { label: artists_name[9],  y: parseInt(artists_popularity[9],10)  }
+                    ]
+                }
+                ]
+            });
+            chart.render();
+            let fdds =  document.querySelector("div.canvasjs-chart-container a");
+            fdds.setAttribute("style", "display:none;");
+                
+
+            document.getElementById("btn-download").addEventListener("click",function() {
+            chart.exportChart({format: "png"});
+            });
+
+            document.getElementById("btn-download-svg").addEventListener("click",function() {
+                chart.exportChart({format: "svg"});
+            });
+
+        });
+
+        document.getElementById("btn_groups").addEventListener("click", function(){
+            document.getElementById("first_gen").innerHTML = artists_name[0];
+            document.getElementById("sec_gen").innerHTML = artists_name[1];
+            document.getElementById("thr_gen").innerHTML = artists_name[2];
+            document.getElementById("four_gen").innerHTML = artists_name[3];
+            document.getElementById("five_gen").innerHTML = artists_name[4];
+            document.getElementById("six_gen").innerHTML = artists_name[5];
+            document.getElementById("seven_gen").innerHTML = artists_name[6];
+            document.getElementById("eight_gen").innerHTML = artists_name[7];
+            document.getElementById("nine_gen").innerHTML = artists_name[8];
+            document.getElementById("ten_gen").innerHTML = artists_name[9];
+
+        })
+
+        function top_artists_name_cookies(){
+            var name = [];
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                var split_c = c.split('=');
+                name.push(split_c[0]);
+            }
+            return name;
+        }
+
+        function top_artists_popularity_cookies(){
+            var popularity = [];
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                var split_c = c.split('=');
+                popularity.push(split_c[1]);
+            }
+            return popularity;
+        }
+        
+        function deleteAllCookies() {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+        }
+
+    </script>
+</html>

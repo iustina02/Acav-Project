@@ -1,0 +1,86 @@
+body{
+    width: 99%;
+    background-color: rgb(255, 244, 214);
+}
+
+/******   Display pages    ******/
+
+.page{
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+/******   LOGIN   ******/
+
+#Login{
+    width: 80%;
+    margin-left: 10%;
+    height: 750px;
+    margin-top: 20px;
+    background-color: rgb(48, 48, 48);
+    border-radius: 10%;
+    position: relative;
+}
+
+#Login h1{
+    color: white;
+    margin-left: 44%;
+    padding-top: 100px;
+}
+
+#Login img{
+    margin-left: 43%;
+    width: 16%;
+}
+
+#Login button{
+    position: absolute;
+    font-size: 30px;
+    bottom: 190px;
+    left:47%;
+    padding: 5px 10px;
+    background-color: rgb(212, 83, 83);
+    color:white;
+}
+
+#Login button:hover{
+    background-color: rgb(247, 146, 78);
+    color:rgb(2, 0, 0);
+}
+
+
+/*****     MEDIA       ******/
+
+@media only screen and (max-width: 1024px) {
+    #Login img{
+        margin-left: 43%;
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #Login h1{
+        margin-left: 40%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #Login h1{
+        font-size: 50px;
+        margin-left: 14%;
+    }
+
+    #Login img{
+        width: 50%;
+        margin-left: 27%;
+    }
+
+    #Login button{
+        font-size: 40px ;
+
+        left:35%;
+    }
+}
