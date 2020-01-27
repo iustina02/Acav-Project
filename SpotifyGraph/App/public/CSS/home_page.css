@@ -143,6 +143,11 @@ body{
     right: 0px;
 }
 
+#Home .top_menu #search_user{
+    /* margin-left: 40%; */
+    right: 150px;
+}
+
 #Home .main_body{
     position: absolute;
     top: 140px;
@@ -273,15 +278,35 @@ body{
 
 /****** Media ******/
 
+@media only screen and (max-width: 1230px) {
+    #Home #btn_groups{
+        font-size: 15px;
+        padding: 2px;
+    }
+
+    #Home #take_data_group{
+        font-size: 12px;
+        padding: 2px;
+    }
+
+    #Home .top_menu #search_user{
+        margin-top: 50px;
+        width: 50%;
+        right: 205px;
+        margin-right: 10px;
+    }
+
+    #Home .top_menu #search_artist_track{
+        margin-top: 50px;
+        width: 50%;
+        margin-right: 10px;
+    }
+}
+
+
 @media only screen and (max-width: 900px) {
     #Home .top_menu p{
         font-size: 22px;
-    }
-
-    #Home .top_menu input{
-        margin-top: 50px;
-        width: 95%;
-        margin-right: 10px;
     }
 }
 
@@ -309,6 +334,13 @@ body{
         opacity: 1;
         cursor: pointer;
     }   
+
+    #Home .top_menu #search_user{
+        margin-top: 50px;
+        width: 50%;
+        right:45%;
+        margin-right: 10px;
+    }
 
 
     #Home .main_body{
@@ -346,6 +378,19 @@ body{
         margin-right: 0;
         right:-10px;
     }
+
+    #Home #gen_select{
+        width: 30%;
+        margin-left: 30px;
+    }
+
+    #Home .top_menu #search_user{
+        margin-top: 50px;
+        width: 50%;
+        right: 130px;
+        margin-right: 10px;
+    }
+    
 
     #Home .main_body #btn-download,
     #Home .main_body #btn-download-svg{
