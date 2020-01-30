@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ACAV</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./CSS/login_page.css">
+        <link rel="stylesheet" href="./CSS/home_page.css">
+        <link rel="stylesheet" href="./CSS/menu_page.css">
+        <style type="text/css">
+            .active{
+                display: block;
+            }
+            .inactive{
+                display: none;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+        <script src="https://kit.fontawesome.com/ec29ebc02d.js" crossorigin="anonymous"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+    </head>
+    <body onload="check()">
+        <div id="Login" href="/start_page">
+            <h1>Welcome to</h1>
+            <img src="https://www.graphicsprings.com/filestorage/stencils/f9283310df222811f9d9e117132d93a5.png?width=500&height=500" alt ="Acav Logo">
+            <button onclick="deleteAllCookies()"><a style="text-decoration: none; color:white;"href="/login">Login</a></button>
+            <br>
+        </div>
+
+        <div id="Home">
+            <div class="right_menu">
+                <button id="Log_out2">Log out</button>
+                <img onclick="myFunction()" src="https://www.graphicsprings.com/filestorage/stencils/f9283310df222811f9d9e117132d93a5.png?width=500&height=500" alt ="Acav Logo">
+                <div>
+                    <button id="btn_top_tracks">Top Tracks</button>
+                </div>
+                <div>
+                    <button id="btn_top_artists">Top Artists</button>
+                </div>
+                <div>
+                    <button id="btn_top_genres">Top Genres</button>
+                </div>
+                <button id="Log_out"><a href="/log_out">Log out</a></button>
+            </div>
+            <div class="top_menu">
+                <button onclick="top_menu()">⮛</button>
+                <select id="gen_select">
+                    <option value="0">Gen:</option>
+                </select>
+                <select id="location_select">
+                    <option value="0">Country:</option>
+                    <option value="RO">RO</option>
+                    <option value="IT">IT</option>
+                </select>
+                <select id="hobby_selec">
+                    <option value="0">Hobby:</option>
+                </select>
+                <a href="/search"><i  id="search_eve" class="fas fa-search"></i></a>
+                <input id="search_user" placeholder="User">
+                <input  id="search_artist_track" placeholder="Artist/Music">
+            </div>
+
+            <div class="main_body">
+                <h1 id="user_welcome">Hello, user</h1>
+                <div  class="graph">
+                    <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+                </div>
+                <a class="button" id="btn-download" >Download PNG</a>
+                <a  class="button" id="btn-download-svg">Download SVG</a>
+            </div>
+
+            <div class="Top_genre">
+                <div id="info_div">
+                    <p id="info_title">User's Spotify Name</p>
+                </div>
+            </div>
+
+            <div class="groups">
+                <div class="title">
+                    <i class="fas fa-users"></i>Your groups
+                </div>
+                <div class="list_of_groups" id="list_of_groups">
+                </div>
+            </div>
+        </div>
+
+        <div id="Menu">
+            <div class="right_menu">
+                <button id="home_button" onclick="home()">⮛</button>
+                <img src="https://www.graphicsprings.com/filestorage/stencils/f9283310df222811f9d9e117132d93a5.png?width=500&height=500" alt ="Acav Logo">
+                <div>
+                    <button id="btn_top_tracks" onclick="home()">Get Tracks</button>
+                </div>
+                <div>
+                    <button id="btn_top_artists">Get Artists</button>
+                </div>
+                <div>
+                    <button id="btn_top_genres">Get Genres</button>
+                </div>
+                <button id="Log_out"><a href="/log_out">Log out</a></button>
+            </div>
+        </div>
+    </body>
+    <script src="./JS/share_graph.js"></script>
+    <script src="./JS/pages2.js"></script>
+    <script src="JS/cookies.js"></script>
+</html>
